@@ -2,7 +2,8 @@ version: "3"
 
 services:
   mysql:
-    container_name: mysql:5.6
+    container_name: mysql
+    build: ./mysql
     image: weibaoer/mysql:5.6
     ports:
       - "3306:3306"
@@ -11,4 +12,16 @@ services:
     volumes:
       - ./mysql/mysql_data:/var/lib/mysql
       - ./mysql/mysql_db.cnf:/etc/mysql/conf.d/mysql_db.cnf
+  exam1:
+    container_name: exam1
+    build: ./java
+    image: weibaoer/exam1:v1
+    environment:
+      countryId: 1
+      customerId: 1
+    depends_on:
+      - mysql
+    links:
+      - mysql
+
 

@@ -10,8 +10,6 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>Exam1</module>
-        <module>Exam2</module>
-        <module>Exam3</module>
     </modules>
 
     <properties>
@@ -40,6 +38,7 @@
         <jedis.version>2.7.2</jedis.version>
         <solrj.version>4.10.3</solrj.version>
         <hibernate.version>4.2.5.Final</hibernate.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <dependencyManagement>
@@ -98,17 +97,6 @@
     <build>
         <finalName>${project.artifactId}</finalName>
         <plugins>
-            <!-- java编译插件 -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.1</version>
-                <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
-                    <encoding>UTF-8</encoding>
-                </configuration>
-            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
@@ -138,6 +126,17 @@
                         </configuration>
                     </execution>
                 </executions>
+            </plugin>
+            <!-- java编译插件 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
             </plugin>
         </plugins>
         <pluginManagement>
