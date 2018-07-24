@@ -1,5 +1,12 @@
 from registry.saas.hand-china.com/hap-cloud/base:latest
 
+#作者
+MAINTAINER weibaoer <yanhh.@qq.com>
+
 ADD target/ target/
 
-ENTRYPOINT ["java","-cp","target/Exam1.jar","com.hand.Test"]
+ADD ./start.sh start.sh
+
+RUN chmod a+x start.sh
+
+ENTRYPOINT ["./start.sh"]

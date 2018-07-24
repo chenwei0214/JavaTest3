@@ -9,16 +9,16 @@ services:
       - "3306:3306"
     environment:
       MYSQL_ROOT_PASSWORD: root
-    volumes:
-      - ./mysql/mysql_data:/var/lib/mysql
-      - ./mysql/mysql_db.cnf:/etc/mysql/conf.d/mysql_db.cnf
+
   exam1:
     container_name: exam1
     build: ./java
     image: weibaoer/exam1:v1
     environment:
-      countryId: 1
-      customerId: 1
+      countryId: 2
+      customerId: 628
+      MYSQL_IP: mysql
+      MYSQL_PORT: 3306
     depends_on:
       - mysql
     links:
